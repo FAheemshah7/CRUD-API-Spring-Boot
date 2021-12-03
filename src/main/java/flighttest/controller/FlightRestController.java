@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,8 +29,6 @@ public class FlightRestController {
 	public List<Flight> getAllLocation(){	
 		return repository.findAll();
 	}
-	
-	
 	
 	@CrossOrigin("*")
 	@ResponseBody
@@ -57,6 +56,7 @@ public class FlightRestController {
 		return id;
 			}
 	
+	
 	@CrossOrigin("*")
 	@ResponseBody
 	@GetMapping("/getById/{id}")
@@ -78,7 +78,7 @@ public class FlightRestController {
 	public int updateData(@RequestParam("id")int id,@RequestParam("fNumber") String fNumber,@RequestParam("operAirline") String operAirline,@RequestParam("dCity") String dCity,@RequestParam("arCity") String arCity,@RequestParam("dateOfDeparture") String dateOfDeparture,@RequestParam("estimedDepartureTime") String estimedDepartureTime) { 
 		Optional<Flight> byId = repository.findById(id);
 		
-		System.out.println("--------------------------------------------");
+		System.out.println("--------------------Previous Values--------------------");
 		System.out.println(fNumber);
 		System.out.println(operAirline);		
 		System.out.println(dCity);
@@ -94,7 +94,7 @@ public class FlightRestController {
 		flight.setDateOfDeparture(dateOfDeparture);
 		flight.setEstimedDepartureTime(estimedDepartureTime);
 
-		System.out.println("--------------------------------------------");
+		System.out.println("------------------After Updating Values-----------------");
 		System.out.println(flight.getfNumber());
 		System.out.println(flight.getOperAirline());		
 		System.out.println(flight.getdCity());
