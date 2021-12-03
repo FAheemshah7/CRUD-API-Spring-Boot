@@ -93,7 +93,7 @@ public class FlightRestController {
 		flight.setArCity(arCity);
 		flight.setDateOfDeparture(dateOfDeparture);
 		flight.setEstimedDepartureTime(estimedDepartureTime);
-
+		
 		System.out.println("------------------After Updating Values-----------------");
 		System.out.println(flight.getfNumber());
 		System.out.println(flight.getOperAirline());		
